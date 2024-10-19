@@ -365,7 +365,7 @@ let started=false;
 
    setTimeout(() => {
     btn.classList.remove("user_flash");
-   }, 300);
+   }, 250);
 
    }
 
@@ -374,7 +374,7 @@ let started=false;
     // maxi=Math.max(maxi,level);
     userSeq=[];
 
-    h2.innerHTML=level;
+    h2.innerHTML=`Level: ${level}`;
 
     let rand_id=Math.floor(Math.random()*4);
     let rand_color=colors[rand_id];
@@ -426,12 +426,22 @@ setTimeout(() => {
 
 
    let all_btns=document.querySelectorAll('.btn');
+   let start_btn=document.querySelector('.start');
 
    
    for(let btn of all_btns){
        btn.addEventListener("click",button_clicked)
 
    }
+
+   start_btn.addEventListener('click',function(){
+    
+    if(started==false){
+        // sound.play();
+         started=true;
+         levelup();
+    }
+   })
 
 document.addEventListener("keydown",function(event){
    
